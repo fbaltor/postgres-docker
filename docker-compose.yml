@@ -8,9 +8,9 @@ services:
     environment:
       POSTGRES_PASSWORD: password
     volumes:
-      - db-data1:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
 volumes:
-  db-data1:
+  db-data:
     driver_opts:
       type: none
       device: /home/fbaltor/postgres-docker/dbdata
