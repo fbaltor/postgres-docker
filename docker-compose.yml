@@ -9,10 +9,13 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - db-data:/var/lib/postgresql/data
+      - ./postgres/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+    ports:
+      - 6000:5432
 
 volumes:
   db-data:
     driver_opts:
       type: none
-      device: /home/fbaltor/postgres-docker/dbdata
+      device: /home/fbaltor/postgres-docker/postgres/dbdata
       o: bind
