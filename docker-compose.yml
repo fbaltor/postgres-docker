@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  db:
+    build: ./postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db-data1:/var/lib/postgresql/data
+volumes:
+  db-data1:
+    driver_opts:
+      type: none
+      device: /home/fbaltor/postgres-docker/dbdata
+      o: bind
